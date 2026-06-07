@@ -1,0 +1,1308 @@
+/* ============================================================
+   CSS VARIABLES
+   ============================================================ */
+:root {
+  --c-yellow:    rgba(252, 216, 62,  1);
+  --c-light:     rgba(245, 245, 245, 1);
+  --c-dark:      rgba(0,   20,  30,  1);
+  --c-cyan:      rgba(20,  181, 206, 1);
+  --c-red:       rgba(209, 73,  91,  1);
+  --c-gray:      rgba(195, 195, 195, 1);
+  --c-gray-dark: rgba(125, 125, 125, 1);
+  --c-white:     #ffffff;
+
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body:    'IBM Plex Sans', sans-serif;
+
+  --hero-w:   1440px;
+  --hero-h:   1000px;
+  --header-h: 100px;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ul { list-style: none; }
+a  { text-decoration: none; color: inherit; }
+img { display: block; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--c-dark);
+  background: var(--c-dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   HERO BLOCK
+   ============================================================ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: var(--hero-h);
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(0, 20, 30, 0.60) 0%,
+      rgba(0, 20, 30, 0.25) 40%,
+      rgba(0, 20, 30, 0)    70%
+    ),
+    linear-gradient(
+      to top,
+      rgba(0, 20, 30, 1)    0%,
+      rgba(0, 20, 30, 0.85) 12%,
+      rgba(0, 20, 30, 0.40) 30%,
+      rgba(0, 20, 30, 0)    55%
+    ),
+    url('imgs/background.jpg');
+
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
+/* ============================================================
+   HEADER BLOCK — 1440×100
+   ============================================================ */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-h);
+  z-index: 10;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(0, 20, 30, 0.25);
+}
+
+.header__inner {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* ============================================================
+   LOGO BLOCK
+   ============================================================ */
+.logo {
+  flex-shrink: 0;
+  padding-left: 140px;
+  margin-right: 0;
+}
+
+.logo__img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ============================================================
+   NAV BLOCK
+   ============================================================ */
+.nav {
+  flex: 1;
+  padding-left: 140px;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.nav__link {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--c-white);
+  opacity: 0.9;
+  white-space: nowrap;
+  position: relative;
+  padding-bottom: 4px;
+  transition: opacity .25s ease;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--c-yellow);
+  box-shadow: 0 0 6px rgba(252, 216, 62, 0.6);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+.nav__link:hover { opacity: 1; }
+
+.nav__link:hover::after,
+.nav__link--active::after { opacity: 1; }
+
+.nav__link--active { opacity: 1; }
+
+/* ============================================================
+   HEADER PHONE
+   ============================================================ */
+.header__phone {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  margin-right: 324px;
+  opacity: 0.85;
+  transition: opacity .25s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.header__phone:hover { opacity: 1; }
+
+.header__phone-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+  display: block;
+}
+
+.header__phone-divider {
+  width: 1.5px;
+  height: 20px;
+  background: var(--c-yellow);
+  flex-shrink: 0;
+  margin: 0 12px 0 14px;
+  opacity: 0;
+  transform: scaleY(0.4);
+  transform-origin: center;
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+.header__phone-number {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--c-white);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity .35s ease .05s, transform .35s ease .05s;
+}
+
+.header__phone:hover .header__phone-divider {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.header__phone:hover .header__phone-number {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================================================
+   CONTAINER — универсальный центрирующий враппер
+   ============================================================ */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 140px;
+  padding-right: 140px;
+}
+
+/* container без правого отступа — для блоков где фото до края */
+.container--flush-right {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 140px;
+  padding-right: 0;
+}
+
+/* container без левого отступа — для why-us где фото слева до края */
+.container--flush-left {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 140px;
+}
+
+/* ============================================================
+   HERO CONTENT
+   ============================================================ */
+.hero__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0 auto;
+  pointer-events: none; /* клики проходят сквозь враппер */
+}
+
+.hero__content {
+  position: absolute;
+  top: 340px;
+  left: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  pointer-events: all;
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--c-white);
+  width: 947px;
+}
+
+.hero__subtitle {
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--c-light);
+}
+
+/* ============================================================
+   BTN BLOCK
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 4px;
+  width: 214px;
+  height: 47px;
+  white-space: nowrap;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, box-shadow .2s ease;
+}
+
+.btn--yellow {
+  background: transparent;
+  color: var(--c-yellow);
+  border: 2px solid var(--c-yellow);
+}
+
+.btn--yellow:hover {
+  box-shadow: 0 0 10px rgba(252, 216, 62, 0.55), 0 0 0 1px rgba(252, 216, 62, 0.4);
+}
+
+.btn--yellow:active {
+  background: var(--c-yellow);
+  color: var(--c-dark);
+  box-shadow: none;
+}
+
+.btn__icon {
+  font-size: 11px;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+.hero__btn {
+  margin-top: 20px;
+  align-self: flex-start;
+}
+
+/* ============================================================
+   SOCIALS BLOCK — вертикально справа
+   ============================================================ */
+.socials {
+  position: absolute;
+  right: 140px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  z-index: 10;
+}
+
+.socials__link {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.socials__link:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.socials__link img {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) invert(1);
+  transition: filter .2s ease;
+}
+
+.socials__link:hover img {
+  filter: brightness(0) saturate(100%) invert(80%) sepia(60%) saturate(500%) hue-rotate(5deg);
+}
+
+.socials__line {
+  display: block;
+  margin-top: -10px;
+}
+
+/* ============================================================
+   MIDDLE BLOCK
+   ============================================================ */
+.middle-block {
+  width: 100%;
+  min-height: 1130px;
+  background: var(--c-dark);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================
+   SECTION TITLE
+   ============================================================ */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: var(--font-heading);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--c-white);
+  margin-bottom: 32px;
+}
+
+.section-title__line {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--c-yellow);
+  flex-shrink: 0;
+}
+
+.section-title__line-img {
+  display: block;
+  flex-shrink: 0;
+  height: 3px;
+  width: auto;
+}
+
+/* ============================================================
+   MORE LINK — «Подробнее →»
+   выровнен по правому краю текстового блока (align-self: flex-end)
+   ============================================================ */
+.more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--c-yellow);
+  transition: gap .2s ease, opacity .2s ease;
+  margin-top: 28px;
+  align-self: flex-end;
+}
+
+.more-link:hover {
+  gap: 16px;
+  opacity: 0.8;
+}
+
+.more-link__arrow {
+  display: block;
+  height: 14px;
+  width: auto;
+}
+
+/* ============================================================
+   ABOUT BLOCK
+   ============================================================ */
+.about {
+  padding: 80px 0 60px;
+}
+
+.about__inner {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 140px;
+  padding-right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* flex-column — чтобы align-self: flex-end на more-link работал */
+.about__text-col {
+  flex-shrink: 0;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.about__text {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--c-light);
+  width: 600px;
+}
+
+.about__img-col {
+  flex-shrink: 0;
+}
+
+.about__img {
+  width: 600px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 150px 0 0 150px;
+  display: block;
+}
+
+/* ============================================================
+   STATS BLOCK — высота 200px, контент по центру
+   ============================================================ */
+.stats {
+  height: 200px;
+  background: rgba(23, 35, 43, 1);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+}
+
+.stats__inner {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 140px;
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+}
+
+.stats__item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.stats__num {
+  font-family: var(--font-heading);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--c-yellow);
+  line-height: 1;
+}
+
+.stats__label {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--c-light);
+  line-height: 1.4;
+}
+
+/* ============================================================
+   WHY US BLOCK
+   ============================================================ */
+.why-us {
+  padding: 80px 0;
+}
+
+.why-us__inner {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.why-us__img-col {
+  flex-shrink: 0;
+}
+
+.why-us__img {
+  width: 600px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 0 150px 150px 0;
+  display: block;
+}
+
+/* flex-column — чтобы align-self: flex-end на more-link работал */
+.why-us__text-col {
+  flex-shrink: 0;
+  width: 600px;
+  padding-right: 140px;
+  display: flex;
+  flex-direction: column;
+}
+
+.why-us__text {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--c-light);
+  width: 600px;
+}
+
+/* ============================================================
+   TOURS SECTION — высота 900px
+   ============================================================ */
+.tours {
+  width: 100%;
+  min-height: 900px;
+  background: var(--c-dark);
+  padding: 0 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tours__head {
+  width: fit-content;
+  padding: 40px 0 40px 140px; /* уменьшен отступ сверху */
+  display: flex;
+  flex-direction: column;
+}
+
+.tours__subtitle {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--c-light);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.tours__signup {
+  align-self: flex-end;
+  margin-top: 4px;
+}
+
+/* ============================================================
+   TOURS SLIDER
+   ============================================================ */
+.tours__slider-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.tours__slider {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scroll-padding-left: 30px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tours__slider::-webkit-scrollbar { display: none; }
+
+/* Первая и последняя карточка — отступы через margin */
+.tours__slider .tour-card:first-child {
+  margin-left: 30px;
+}
+
+.tours__slider .tour-card:last-child {
+  margin-right: 30px;
+}
+
+/* ============================================================
+   TOUR CARD BLOCK
+   ============================================================ */
+.tour-card {
+  flex-shrink: 0;
+  width: 300px;
+  height: 500px;
+  border-radius: 0;
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+/* Фото */
+.tour-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--card-bg);
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+/* Верхнее затемнение — исчезает при hover через opacity */
+.tour-card__overlay-top {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 20, 30, 0.45);
+  opacity: 1;
+  transition: opacity .35s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.tour-card:hover .tour-card__overlay-top {
+  opacity: 0;
+}
+
+/* Нижнее затемнение — всегда остаётся */
+.tour-card__overlay-bottom {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 20, 30, 0.95) 0%,
+    rgba(0, 20, 30, 0.60) 30%,
+    rgba(0, 20, 30, 0)    55%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Контент поверх всего */
+.tour-card__price,
+.tour-card__bottom {
+  position: relative;
+  z-index: 3;
+}
+
+.tour-card:hover {
+  box-shadow: none;
+}
+
+/* Цена в правом верхнем углу */
+.tour-card__price {
+  align-self: flex-end;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--c-yellow);
+  border: 1.5px solid var(--c-yellow);
+  border-radius: 8px;
+  padding: 5px 12px;
+  background: rgba(0, 20, 30, 0.75);
+  transition: background .25s ease, color .25s ease, box-shadow .25s ease;
+}
+
+/* hover — цена подсвечивается как кнопка */
+.tour-card:hover .tour-card__price {
+  background: var(--c-yellow);
+  color: var(--c-dark);
+  box-shadow: 0 0 10px rgba(252, 216, 62, 0.55);
+}
+
+/* Нижняя часть карточки */
+.tour-card__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tour-card__season {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--c-light);
+  opacity: 0.85;
+}
+
+.tour-card__season-line {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--c-yellow);
+  flex-shrink: 0;
+}
+
+.tour-card__name {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--c-white);
+  line-height: 1.2;
+}
+
+/* ============================================================
+   TOURS DOTS — вне slider-wrap, на всю ширину секции
+   ============================================================ */
+.tours__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 28px;
+  padding: 0;
+}
+
+.tours__dot {
+  width: 32px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: background .25s ease, width .25s ease;
+  border: none;
+  padding: 0;
+}
+
+.tours__dot--active {
+  background: var(--c-yellow);
+  width: 48px;
+}
+
+/* ============================================================
+   BLOG SECTION — высота 1100px
+   ============================================================ */
+.blog {
+  width: 100%;
+  min-height: 1100px;
+  background: var(--c-dark);
+  padding: 0 140px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ---- HEAD ---- */
+.blog__head {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.blog .section-title {
+  margin-bottom: 0;
+}
+
+.blog__head-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 60px;
+}
+
+.blog__subtitle {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--c-light);
+  line-height: 1.55;
+}
+
+.blog__more {
+  flex-shrink: 0;
+  margin-top: 0;
+  padding-bottom: 2px;
+}
+
+.blog__grid {
+  display: flex;
+  gap: 40px;
+  height: 780px; /* фиксированная высота грида */
+}
+
+.blog__col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.blog__img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blog__img--tall  { flex: 2; }
+.blog__img--short { flex: 1; }
+
+/* ============================================================
+   QUESTIONS SECTION — высота 840px
+   ============================================================ */
+.questions {
+  width: 100%;
+  min-height: auto;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 20, 30, 0.7)  0%,
+      rgba(0, 20, 30, 1)    100%
+    ),
+    url('imgs/questions.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.questions__inner {
+  width: 100%;
+  padding: 80px 140px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.questions .section-title {
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   FAQ BLOCK
+   ============================================================ */
+.faq {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.faq__item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Убрана верхняя линия у первого элемента */
+
+.faq__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq__question {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--c-white);
+  line-height: 1.2;
+}
+
+/* Иконка — img из папки */
+.faq__icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: block;
+  transition: transform .3s ease;
+}
+
+/* При открытом — поворот на 45° (четверть круга влево = крестик) */
+.faq__item--open .faq__icon {
+  transform: rotate(45deg);
+}
+
+/* Тело ответа */
+.faq__body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .4s ease, padding .4s ease;
+}
+
+.faq__item--open .faq__body {
+  max-height: 200px;
+  padding-bottom: 24px;
+}
+
+.faq__answer {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--c-gray);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   REVIEWS SECTION — высота 725px
+   ============================================================ */
+.reviews {
+  width: 100%;
+  min-height: 725px;
+  background: var(--c-dark);
+  padding: 80px 0 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* ---- HEAD ---- */
+.reviews__head {
+  padding: 0 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.reviews .section-title {
+  margin-bottom: 0;
+}
+
+.reviews__head-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 60px;
+}
+
+.reviews__subtitle {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--c-light);
+  line-height: 1.55;
+}
+
+.reviews__more {
+  flex-shrink: 0;
+  margin-top: 0;
+  padding-bottom: 2px;
+}
+
+/* ---- SLIDER WRAP ---- */
+.reviews__slider-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.reviews__slider {
+  width: 100%;
+  display: flex;
+  gap: 40px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scroll-padding-left: 30px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.reviews__slider::-webkit-scrollbar { display: none; }
+
+/* 30px от краёв через margin на первой/последней карточке */
+.reviews__slider .review-card:first-child { margin-left: 30px; }
+.reviews__slider .review-card:last-child  { margin-right: 30px; }
+
+/* ---- REVIEW CARD — 460×240 ---- */
+.review-card {
+  flex-shrink: 0;
+  width: 460px;
+  height: 240px;
+  scroll-snap-align: start;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.review-card__top {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.review-card__photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
+}
+
+.review-card__text-wrap {
+  width: 300px;
+  height: 130px;
+  overflow: hidden;
+}
+
+.review-card__text {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--c-light);
+  line-height: 1.55;
+}
+
+.review-card__name {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--c-gray-dark);
+  padding-left: 100px;
+}
+
+/* ---- DOTS ---- */
+.reviews__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 0;
+}
+
+.reviews__dot {
+  width: 32px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: background .25s ease, width .25s ease;
+  border: none;
+  padding: 0;
+}
+
+.reviews__dot--active {
+  background: var(--c-yellow);
+  width: 48px;
+}
+
+/* ============================================================
+   FOOTER — высота 300px
+   ============================================================ */
+.footer {
+  width: 100%;
+  height: 300px;
+  background: rgba(23, 35, 43, 1);
+  display: flex;
+  align-items: center;
+}
+
+.footer__inner {
+  width: 100%;
+  padding: 0 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer__logo {
+  margin-left: -140px;
+}
+
+/* ---- TOP ROW: logo left + nav right ---- */
+.footer__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.footer__nav-list {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  list-style: none;
+}
+
+.footer__nav-link {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--c-light);
+  opacity: 0.85;
+  transition: opacity .2s ease;
+}
+
+.footer__nav-link:hover { opacity: 1; }
+
+/* ---- DIVIDER ---- */
+.footer__divider {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  margin-bottom: 40px;
+}
+
+/* ---- BOTTOM ROW — всё по правому краю ---- */
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 60px;
+}
+
+.footer__contacts {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.footer__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer__contact-icon {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.footer__contact-text {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--c-light);
+  opacity: 0.85;
+}
+
+.footer__contact-text--link { transition: opacity .2s ease; }
+.footer__contact-text--link:hover { opacity: 1; }
+
+/* ---- SOCIALS — без кружков, просто svg 40×40 ---- */
+.footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer__social-link {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.footer__social-link:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.footer__social-link img {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+/* ============================================================
+   404 PAGE
+   ============================================================ */
+.page-404 {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  /* Фоновое фото с градиентом */
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    ),
+    url('imgs/404.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 80px;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+/* SVG с цифрами 404 */
+.not-found__num {
+  width: 420px;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+.not-found__title {
+  font-family: var(--font-heading);
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--c-white);
+  line-height: 1.2;
+}
+
+.not-found__subtitle {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--c-light);
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.not-found__btn {
+  margin-top: 16px;
+  width: 214px;
+  height: 47px;
+}

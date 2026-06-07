@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Кочевник — туры по Кыргызстану</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header__inner">
+
+        <!-- Логотип -->
+        <a class="header__logo logo" href="#">
+          <img class="logo__img" src="imgs/logo.svg" alt="Кочевник" />
+        </a>
+
+        <!-- Навигация -->
+        <nav class="nav" aria-label="Основная навигация">
+          <ul class="nav__list">
+            <li class="nav__item"><a class="nav__link" href="#about">О нас</a></li>
+            <li class="nav__item"><a class="nav__link" href="#tours">Туры</a></li>
+            <li class="nav__item"><a class="nav__link" href="#blog">Блог</a></li>
+            <li class="nav__item"><a class="nav__link" href="#questions">Вопросы</a></li>
+            <li class="nav__item"><a class="nav__link" href="#reviews">Отзывы</a></li>
+            <li class="nav__item"><a class="nav__link" href="#contacts">Контакты</a></li>
+          </ul>
+        </nav>
+
+        <!-- Телефон -->
+        <a class="header__phone" href="tel:+996509000000" aria-label="Позвонить нам">
+          <img class="header__phone-icon" src="imgs/phone.svg" alt="" aria-hidden="true" />
+          <span class="header__phone-divider" aria-hidden="true"></span>
+          <span class="header__phone-number">0509 000 000</span>
+        </a>
+
+      </div>
+    </header>
+
+    <!-- HERO CONTENT -->
+    <div class="hero__inner">
+      <div class="hero__content">
+        <h1 class="hero__title">
+          Великие путешествия начинаются<br />
+          с Величественных гор Кыргызстана...
+        </h1>
+        <p class="hero__subtitle">
+          Ощути незабываемые впечатления от слияния<br />
+          с уникальными местами нашей страны.<br />
+          Путешествовать с нами легко и комфортно!
+        </p>
+        <a class="hero__btn btn btn--yellow" href="#tours">
+          Начать тур
+          <span class="btn__icon" aria-hidden="true">▶</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Социальные сети (вертикально справа) -->
+    <aside class="hero__socials socials" aria-label="Социальные сети">
+      <a class="socials__link" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="imgs/instagram.svg" alt="Instagram" />
+      </a>
+      <a class="socials__link" href="#" target="_blank" rel="noopener" aria-label="Telegram">
+        <img src="imgs/telegram.svg" alt="Telegram" />
+      </a>
+      <a class="socials__link" href="#" target="_blank" rel="noopener" aria-label="YouTube">
+        <img src="imgs/youtube.svg" alt="YouTube" />
+      </a>
+      <img class="socials__line" src="imgs/hero_line.svg" alt="" aria-hidden="true" />
+    </aside>
+
+  </section>
+  <!-- /HERO -->
+
+  <!-- ========== ABOUT + STATS + WHY US ========== -->
+  <div class="middle-block">
+
+    <!-- О НАС -->
+    <section class="about" id="about">
+      <div class="about__inner">
+
+        <div class="about__text-col">
+          <h2 class="about__title section-title">
+            <img class="section-title__line-img" src="imgs/about_us_why_us_line.svg" alt="" aria-hidden="true" />
+            О нас
+          </h2>
+          <p class="about__text">
+            Мы - современное туристическое агентство, направленное
+            на создание идеального и незабываемого путешествия,
+            благодаря которому вы сможете расслабиться и насладиться
+            красотами Кыргызстана, ощутить чистейший горный климат
+            и запастись впечатлениями на всю жизнь.
+          </p>
+          <a class="about__more more-link" href="#">
+            Подробнее
+            <img class="more-link__arrow" src="imgs/about_us_why_us_arrow.svg" alt="" aria-hidden="true" />
+          </a>
+        </div>
+
+        <div class="about__img-col">
+          <img class="about__img" src="imgs/about_us.jpg" alt="О нас — горы Кыргызстана" />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- СТАТИСТИКА -->
+    <section class="stats">
+      <div class="stats__inner">
+        <div class="stats__item">
+          <span class="stats__num">+8</span>
+          <span class="stats__label">Лет безупречной репутации на рынке туризма</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__num">+26</span>
+          <span class="stats__label">Красивейших мест Кыргызстана</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__num">+3000</span>
+          <span class="stats__label">Довольных и постоянных Кочевников</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__num">+4</span>
+          <span class="stats__label">Сезона для любого вида туризма</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПОЧЕМУ МЫ -->
+    <section class="why-us" id="why-us">
+      <div class="why-us__inner">
+
+        <div class="why-us__img-col">
+          <img class="why-us__img" src="imgs/why_us.jpg" alt="Почему мы — фургон в горах" />
+        </div>
+
+        <div class="why-us__text-col">
+          <h2 class="why-us__title section-title">
+            <img class="section-title__line-img" src="imgs/about_us_why_us_line.svg" alt="" aria-hidden="true" />
+            Почему мы?
+          </h2>
+          <p class="why-us__text">
+            Мы профессионально готовимся к каждому туру
+            и обеспечиваем наших путешественников не только
+            комфортабельным транспортом и вкусной едой,
+            но и нужным инвентарем.<br />
+            Каждый уголок Кыргызстана имеет свою историю и именно
+            поэтому на всем пути, вас будет сопровождать
+            наш специально-обученный гид и конечно же фотограф...
+          </p>
+          <a class="why-us__more more-link" href="#">
+            Подробнее
+            <img class="more-link__arrow" src="imgs/about_us_why_us_arrow.svg" alt="" aria-hidden="true" />
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+  <!-- /MIDDLE BLOCK -->
+
+  <!-- ========== TOURS SECTION ========== -->
+  <section class="tours" id="tours">
+    <div class="tours__head">
+      <h2 class="tours__title section-title">
+        <img class="section-title__line-img" src="imgs/about_us_why_us_line.svg" alt="" aria-hidden="true" />
+        Туры
+      </h2>
+      <p class="tours__subtitle">
+        Приглашаем вас, ваших друзей и всю семью в увлекательное<br />
+        путешествие вместе с Кочевниками!
+      </p>
+      <a class="tours__signup more-link" href="#">
+        Записаться
+        <img class="more-link__arrow" src="imgs/about_us_why_us_arrow.svg" alt="" aria-hidden="true" />
+      </a>
+    </div>
+
+    <!-- Слайдер -->
+    <div class="tours__slider-wrap">
+      <div class="tours__slider" id="tours-slider">
+
+        <article class="tour-card" style="--card-bg: url('imgs/tours1.jpg')">
+          <div class="tour-card__overlay-top" aria-hidden="true"></div>
+          <div class="tour-card__overlay-bottom" aria-hidden="true"></div>
+          <span class="tour-card__price">от 3000 с</span>
+          <div class="tour-card__bottom">
+            <div class="tour-card__season">
+              <span class="tour-card__season-line" aria-hidden="true"></span>
+              winter
+            </div>
+            <h3 class="tour-card__name">База Каракол</h3>
+          </div>
+        </article>
+
+        <article class="tour-card" style="--card-bg: url('imgs/tours2.jpg')">
+          <div class="tour-card__overlay-top" aria-hidden="true"></div>
+          <div class="tour-card__overlay-bottom" aria-hidden="true"></div>
+          <span class="tour-card__price">от 2000 с</span>
+          <div class="tour-card__bottom">
+            <div class="tour-card__season">
+              <span class="tour-card__season-line" aria-hidden="true"></span>
+              spring | summer
+            </div>
+            <h3 class="tour-card__name">Ущелье Жети-Огуз</h3>
+          </div>
+        </article>
+
+        <article class="tour-card" style="--card-bg: url('imgs/tours3.jpg')">
+          <div class="tour-card__overlay-top" aria-hidden="true"></div>
+          <div class="tour-card__overlay-bottom" aria-hidden="true"></div>
+          <span class="tour-card__price">от 2500 с</span>
+          <div class="tour-card__bottom">
+            <div class="tour-card__season">
+              <span class="tour-card__season-line" aria-hidden="true"></span>
+              spring | summer
+            </div>
+            <h3 class="tour-card__name">Озеро Кель-Суу</h3>
+          </div>
+        </article>
+
+        <article class="tour-card" style="--card-bg: url('imgs/tours4.jpg')">
+          <div class="tour-card__overlay-top" aria-hidden="true"></div>
+          <div class="tour-card__overlay-bottom" aria-hidden="true"></div>
+          <span class="tour-card__price">от 1200 с</span>
+          <div class="tour-card__bottom">
+            <div class="tour-card__season">
+              <span class="tour-card__season-line" aria-hidden="true"></span>
+              spring | summer
+            </div>
+            <h3 class="tour-card__name">Башня Бурана</h3>
+          </div>
+        </article>
+
+        <article class="tour-card" style="--card-bg: url('imgs/tours5.jpg')">
+          <div class="tour-card__overlay-top" aria-hidden="true"></div>
+          <div class="tour-card__overlay-bottom" aria-hidden="true"></div>
+          <span class="tour-card__price">от 5000 с</span>
+          <div class="tour-card__bottom">
+            <div class="tour-card__season">
+              <span class="tour-card__season-line" aria-hidden="true"></span>
+              spring | summer
+            </div>
+            <h3 class="tour-card__name">Озеро Сары Челек</h3>
+          </div>
+        </article>
+
+        <article class="tour-card" style="--card-bg: url('imgs/tours6.jpg')">
+          <div class="tour-card__overlay-top" aria-hidden="true"></div>
+          <div class="tour-card__overlay-bottom" aria-hidden="true"></div>
+          <span class="tour-card__price">от 600 с</span>
+          <div class="tour-card__bottom">
+            <div class="tour-card__season">
+              <span class="tour-card__season-line" aria-hidden="true"></span>
+              spring | summer
+            </div>
+            <h3 class="tour-card__name">Водопад Белогорка</h3>
+          </div>
+        </article>
+
+        <article class="tour-card" style="--card-bg: url('imgs/tours7.jpg')">
+          <div class="tour-card__overlay-top" aria-hidden="true"></div>
+          <div class="tour-card__overlay-bottom" aria-hidden="true"></div>
+          <span class="tour-card__price">от 2300 с</span>
+          <div class="tour-card__bottom">
+            <div class="tour-card__season">
+              <span class="tour-card__season-line" aria-hidden="true"></span>
+              spring | summer
+            </div>
+            <h3 class="tour-card__name">Долина Суусамыр</h3>
+          </div>
+        </article>
+
+        <article class="tour-card" style="--card-bg: url('imgs/tours8.jpg')">
+          <div class="tour-card__overlay-top" aria-hidden="true"></div>
+          <div class="tour-card__overlay-bottom" aria-hidden="true"></div>
+          <span class="tour-card__price">от 1000 с</span>
+          <div class="tour-card__bottom">
+            <div class="tour-card__season">
+              <span class="tour-card__season-line" aria-hidden="true"></span>
+              spring | summer
+            </div>
+            <h3 class="tour-card__name">Озеро Кол-Тор</h3>
+          </div>
+        </article>
+
+        <article class="tour-card" style="--card-bg: url('imgs/tours9.jpg')">
+          <div class="tour-card__overlay-top" aria-hidden="true"></div>
+          <div class="tour-card__overlay-bottom" aria-hidden="true"></div>
+          <span class="tour-card__price">от 750 с</span>
+          <div class="tour-card__bottom">
+            <div class="tour-card__season">
+              <span class="tour-card__season-line" aria-hidden="true"></span>
+              spring | summer
+            </div>
+            <h3 class="tour-card__name">Каньоны Сказка</h3>
+          </div>
+        </article>
+
+      </div><!-- /slider -->
+    </div>
+
+    <!-- Dots — на всю ширину секции, по центру -->
+    <div class="tours__dots" id="tours-dots"></div>
+
+  </section>
+  <!-- /TOURS -->
+
+  <!-- ========== BLOG SECTION ========== -->
+  <section class="blog" id="blog">
+
+    <div class="blog__head">
+      <h2 class="blog__title section-title">
+        <img class="section-title__line-img" src="imgs/about_us_why_us_line.svg" alt="" aria-hidden="true" />
+        Блог
+      </h2>
+      <div class="blog__head-row">
+        <p class="blog__subtitle">
+          Профессиональный фотограф на протяжении всего тура будет<br />
+          сопровождать вас, чтобы запечатлеть лучшие моменты...
+        </p>
+        <a class="blog__more more-link" href="#">
+          Подробнее
+          <img class="more-link__arrow" src="imgs/about_us_why_us_arrow.svg" alt="" aria-hidden="true" />
+        </a>
+      </div>
+    </div>
+
+    <div class="blog__grid">
+      <!-- Колонка 1 -->
+      <div class="blog__col">
+        <img class="blog__img blog__img--tall" src="imgs/blog1.jpg" alt="Блог фото 1" />
+        <img class="blog__img blog__img--short" src="imgs/blog4.jpg" alt="Блог фото 4" />
+      </div>
+      <!-- Колонка 2 -->
+      <div class="blog__col">
+        <img class="blog__img blog__img--short" src="imgs/blog2.jpg" alt="Блог фото 2" />
+        <img class="blog__img blog__img--tall" src="imgs/blog5.jpg" alt="Блог фото 5" />
+      </div>
+      <!-- Колонка 3 -->
+      <div class="blog__col">
+        <img class="blog__img blog__img--tall" src="imgs/blog3.jpg" alt="Блог фото 3" />
+        <img class="blog__img blog__img--short" src="imgs/blog6.jpg" alt="Блог фото 6" />
+      </div>
+    </div>
+
+  </section>
+  <!-- /BLOG -->
+
+  <!-- ========== QUESTIONS SECTION ========== -->
+  <section class="questions" id="questions">
+
+    <div class="questions__inner">
+      <h2 class="questions__title section-title">
+        <img class="section-title__line-img" src="imgs/about_us_why_us_line.svg" alt="" aria-hidden="true" />
+        Вопросы
+      </h2>
+
+      <ul class="faq">
+
+        <li class="faq__item">
+          <button class="faq__trigger" aria-expanded="false">
+            <span class="faq__question">Кормят ли на турах?</span>
+            <img class="faq__icon" src="imgs/questions_plus.svg" alt="" aria-hidden="true" />
+          </button>
+          <div class="faq__body">
+            <p class="faq__answer">В каждом путешествии Вы получаете имменной "Бокс Кочаоллдевника", куда входит: вода, фрукт, сендвич и сухофрукты.</p>
+          </div>
+        </li>
+
+        <li class="faq__item">
+          <button class="faq__trigger" aria-expanded="false">
+            <span class="faq__question">Что брать с собой?</span>
+            <img class="faq__icon" src="imgs/questions_plus.svg" alt="" aria-hidden="true" />
+          </button>
+          <div class="faq__body">
+            <p class="faq__answer">Документы, сменная одежда, головной убор, солнцезещитный крем, личные медикаменты</p>
+          </div>
+        </li>
+
+        <li class="faq__item">
+          <button class="faq__trigger" aria-expanded="false">
+            <span class="faq__question">Что входит в стоимость тура?</span>
+            <img class="faq__icon" src="imgs/questions_plus.svg" alt="" aria-hidden="true" />
+          </button>
+          <div class="faq__body">
+            <p class="faq__answer">В стоимость тура входит: трансфер, услуги гида, фотографа, профессиональный инвентарь, бокс Кочевника</p>
+          </div>
+        </li>
+
+        <li class="faq__item">
+          <button class="faq__trigger" aria-expanded="false">
+            <span class="faq__question">Предоставляете ли Вы индивидуальные туры?</span>
+            <img class="faq__icon" src="imgs/questions_plus.svg" alt="" aria-hidden="true" />
+          </button>
+          <div class="faq__body">
+            <p class="faq__answer">Мы можем предоставить индивидуальный тур с трансфером и нашим маршрутом</p>
+          </div>
+        </li>
+
+        <li class="faq__item">
+          <button class="faq__trigger" aria-expanded="false">
+            <span class="faq__question">Возрастные ограничения?</span>
+            <img class="faq__icon" src="imgs/questions_plus.svg" alt="" aria-hidden="true" />
+          </button>
+          <div class="faq__body">
+            <p class="faq__answer">Детям до 12 лет не рекомендуется посещать наши туры</p>
+          </div>
+        </li>
+
+        <li class="faq__item">
+          <button class="faq__trigger" aria-expanded="false">
+            <span class="faq__question">Какие есть бонусы?</span>
+            <img class="faq__icon" src="imgs/questions_plus.svg" alt="" aria-hidden="true" />
+          </button>
+          <div class="faq__body">
+            <p class="faq__answer">Приведи троих друзей друзей, и получи 50% скидку на любой тур</p>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+
+  </section>
+  <!-- /QUESTIONS -->
+
+  <!-- ========== REVIEWS SECTION ========== -->
+  <section class="reviews" id="reviews">
+
+    <div class="reviews__head">
+      <h2 class="reviews__title section-title">
+        <img class="section-title__line-img" src="imgs/about_us_why_us_line.svg" alt="" aria-hidden="true" />
+        Отзывы
+      </h2>
+      <div class="reviews__head-row">
+        <p class="reviews__subtitle">
+          Мы всегда рады вашим отзывам и открыты к новым предложениям!<br />
+          Каждый из вас может оставить отзыв в наших соц.сетях
+        </p>
+        <a class="reviews__more more-link" href="#">
+          Перейти
+          <img class="more-link__arrow" src="imgs/about_us_why_us_arrow.svg" alt="" aria-hidden="true" />
+        </a>
+      </div>
+    </div>
+
+    <!-- Слайдер отзывов -->
+    <div class="reviews__slider-wrap">
+      <div class="reviews__slider" id="reviews-slider">
+
+        <article class="review-card">
+          <div class="review-card__top">
+            <img class="review-card__photo" src="imgs/reviews1.jpg" alt="Илбирс Кадыров" />
+            <div class="review-card__text-wrap">
+              <p class="review-card__text">Зимой я неизменно всегда еду с Кочевниками в Кара-кол, каждый раз встречаю новых друзей, с которыми можно покататься на сноубордах!</p>
+            </div>
+          </div>
+          <p class="review-card__name">Илбирс Кадыров</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__top">
+            <img class="review-card__photo" src="imgs/reviews2.jpg" alt="Асия Калыкова" />
+            <div class="review-card__text-wrap">
+              <p class="review-card__text">Впервые была на озере Кол-Тор, понравился гид, наши игры и просто люди, с которыми я познакомилась благодаря вам.</p>
+            </div>
+          </div>
+          <p class="review-card__name">Асия Калыкова</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__top">
+            <img class="review-card__photo" src="imgs/reviews3.jpg" alt="Алмаз Аширов" />
+            <div class="review-card__text-wrap">
+              <p class="review-card__text">Вот уже второй год выбираю ваше тур агенство! Подготовка на высшем уровне, остается только наслаждаться отдыхом и красотами нашей природы.</p>
+            </div>
+          </div>
+          <p class="review-card__name">Алмаз Аширов</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__top">
+            <img class="review-card__photo" src="imgs/reviews4.jpg" alt="Белек Ильязов" />
+            <div class="review-card__text-wrap">
+              <p class="review-card__text">Если ходить на природу, то только с вами, не надо загружать голову, все готово и четко распланированно, спасибо вам!</p>
+            </div>
+          </div>
+          <p class="review-card__name">Белек Ильязов</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__top">
+            <img class="review-card__photo" src="imgs/reviews5.jpg" alt="Айкерим Жанузакова" />
+            <div class="review-card__text-wrap">
+              <p class="review-card__text">Было бы хорошо, если в некоторых турах кормили горячими блюдами и раздавали горячие напитки, не у всех есть термос)</p>
+            </div>
+          </div>
+          <p class="review-card__name">Айкерим Жанузакова</p>
+        </article>
+
+      </div><!-- /slider -->
+    </div>
+
+    <!-- Dots -->
+    <div class="reviews__dots" id="reviews-dots"></div>
+
+  </section>
+  <!-- /REVIEWS -->
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="contacts">
+    <div class="footer__inner">
+
+      <!-- Top row: logo + nav -->
+      <div class="footer__top">
+        <a class="footer__logo logo" href="#">
+          <img class="logo__img" src="imgs/logo.svg" alt="Кочевник" />
+        </a>
+        <nav class="footer__nav" aria-label="Навигация в футере">
+          <ul class="footer__nav-list">
+            <li><a class="footer__nav-link" href="#about">О нас</a></li>
+            <li><a class="footer__nav-link" href="#tours">Туры</a></li>
+            <li><a class="footer__nav-link" href="#blog">Блог</a></li>
+            <li><a class="footer__nav-link" href="#questions">Вопросы</a></li>
+            <li><a class="footer__nav-link" href="#reviews">Отзывы</a></li>
+            <li><a class="footer__nav-link" href="#contacts">Контакты</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__divider" aria-hidden="true"></div>
+
+      <!-- Bottom row: location + phone + socials -->
+      <div class="footer__bottom">
+        <div class="footer__contacts">
+          <div class="footer__contact-item">
+            <img class="footer__contact-icon" src="imgs/location.svg" alt="" aria-hidden="true" />
+            <span class="footer__contact-text">Bishkek, Kyrgyzstan</span>
+          </div>
+          <div class="footer__contact-item">
+            <img class="footer__contact-icon" src="imgs/phone.svg" alt="" aria-hidden="true" />
+            <a class="footer__contact-text footer__contact-text--link" href="tel:+996509000000">0509 000 000</a>
+          </div>
+        </div>
+
+        <div class="footer__socials">
+          <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="imgs/instagram.svg" alt="Instagram" />
+          </a>
+          <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="Telegram">
+            <img src="imgs/telegram.svg" alt="Telegram" />
+          </a>
+          <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="YouTube">
+            <img src="imgs/youtube.svg" alt="YouTube" />
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+  <!-- /FOOTER -->
+
+  <script src="main.js"></script>
+</body>
+</html>
