@@ -210,6 +210,15 @@ body {
   transform: translateX(0);
 }
 
+.header__phone--open .header__phone-divider {
+  opacity: 1;
+  transform: scaleY(1);
+}
+.header__phone--open .header__phone-number {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* ============================================================
    CONTAINER — универсальный центрирующий враппер
    ============================================================ */
@@ -839,6 +848,8 @@ body {
   padding-bottom: 2px;
 }
 
+.blog__socials { display: none; }
+
 .blog__grid {
   display: flex;
   gap: 40px;
@@ -851,6 +862,10 @@ body {
   flex-direction: column;
   gap: 40px;
 }
+
+/* Десктоп: blog2(short) сверху, blog5(tall) снизу — обратно DOM-порядку */
+.blog__col:nth-child(2) .blog__img:first-child { order: 2; }
+.blog__col:nth-child(2) .blog__img:nth-child(2) { order: 1; }
 
 .blog__img {
   width: 100%;
@@ -1304,4 +1319,508 @@ body {
   margin-top: 16px;
   width: 214px;
   height: 47px;
+}
+
+/* ============================================================
+   BURGER BUTTON — скрыт на десктопе
+   ============================================================ */
+.header__burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 20px;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.header__burger img {
+  width: 28px;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   MOBILE NAV OVERLAY — скрыт на десктопе
+   ============================================================ */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  background: rgba(0, 20, 30, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 100;
+  transform: translateY(calc(-100% - var(--header-h)));
+  opacity: 0;
+  visibility: hidden;
+  transition: transform .35s ease, opacity .35s ease, visibility 0s .35s;
+  padding: 0;
+}
+
+.mobile-nav--open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transition: transform .35s ease, opacity .35s ease, visibility 0s 0s;
+}
+
+.mobile-nav__list {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 24px 32px;
+  gap: 0;
+}
+
+.mobile-nav__link {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--c-white);
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: block;
+  transition: color .2s ease;
+}
+
+.mobile-nav__link:hover { color: var(--c-yellow); }
+
+/* ============================================================
+   АДАПТИВКА — iPad Pro (769px – 1366px)
+   ============================================================ */
+@media (min-width: 769px) and (max-width: 1366px) {
+
+  /* === HEADER === */
+  .logo { padding-left: 60px; }
+  .nav { padding-left: 60px; }
+  .nav__list { gap: 36px; }
+  .header__phone {
+    flex-direction: row-reverse;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  /* === HERO === */
+  .hero__content { left: 60px; }
+  .hero__title { font-size: 40px; width: 720px; }
+  .hero__subtitle { font-size: 20px; }
+  .socials { right: 60px; }
+
+  /* === ABOUT === */
+  .about__inner { padding-left: 60px; gap: 40px; }
+  .about__text-col { flex: 1; width: auto; min-width: 280px; max-width: 520px; }
+  .about__text { width: 100%; font-size: 18px; }
+  .about__img { width: 400px; }
+
+  /* === STATS === */
+  .stats__inner { padding: 0 60px; }
+  .stats__num { font-size: 34px; }
+
+  /* === WHY US === */
+  .why-us__inner { padding-right: 60px; gap: 40px; justify-content: flex-start; }
+  .why-us__text-col { flex: 1; width: auto; min-width: 280px; max-width: 520px; padding-right: 40px; }
+  .why-us__text { width: 100%; font-size: 18px; }
+  .why-us__img { width: 400px; }
+
+  /* === TOURS === */
+  .tours__head { padding: 40px 0 40px 60px; }
+
+  /* === BLOG === */
+  .blog { padding: 0 60px 80px; }
+
+  /* === QUESTIONS === */
+  .questions__inner { padding: 80px 60px 40px; }
+
+  /* === REVIEWS === */
+  .reviews__head { padding: 0 60px; }
+  .reviews__slider .review-card:first-child { margin-left: 60px; }
+  .reviews__slider .review-card:last-child  { margin-right: 60px; }
+
+  /* === FOOTER === */
+  .footer__inner { padding: 0 60px; }
+  .footer__logo { margin-left: -60px; }
+}
+
+/* ============================================================
+   АДАПТИВКА — max-width: 768px
+   ============================================================ */
+@media (max-width: 768px) {
+
+  /* --- ROOT --- */
+  :root {
+    --header-h: 70px;
+    --hero-h: 100dvh;
+  }
+
+  /* --- HERO --- */
+  .hero {
+    height: 100dvh;
+    min-height: 580px;
+    background-size: cover;
+    background-position: center top;
+  }
+
+  /* --- 2. HEADER — та же прозрачность, что и на десктопе --- */
+  .header {
+    background: rgba(0, 20, 30, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* --- ШАПКА — показываем бургер, скрываем nav и телефон --- */
+  .logo { padding-left: 20px; }
+  .nav { display: none; }
+  .header__phone { display: none; }
+  .header__burger { display: flex; }
+  .mobile-nav { display: block; }
+
+  /* --- HERO CONTENT --- */
+  .hero__content {
+    top: 180px;
+    left: 20px;
+    right: 20px;
+  }
+
+  .hero__title { font-size: 30px; width: 100%; line-height: 1.2; }
+  .hero__subtitle { font-size: 15px; }
+
+  /* --- 3. SOCIALS — чуть ниже --- */
+  .socials { right: 16px; top: 72%; gap: 20px; }
+  .socials__link { width: 34px; height: 34px; }
+  .socials__link img { width: 34px; height: 34px; }
+
+  /* --- 4, 5. ABOUT — фото 150px, 40px до статистики --- */
+  .about { padding: 48px 0 40px; }
+
+  .about__inner {
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 0;
+    gap: 28px;
+  }
+
+  .about__text-col { width: 100%; padding-right: 20px; }
+  .about__text { font-size: 16px; width: 100%; }
+
+  .about__img-col { width: 100%; max-width: 100%; flex-shrink: 1; }
+
+  .about__img {
+    width: 300px;
+    height: 150px;
+    border-radius: 75px 0 0 75px;
+    margin-left: auto;
+  }
+
+  /* --- STATS --- */
+  .stats { height: auto; padding: 40px 0; }
+  .stats__inner { padding: 0 20px; flex-wrap: wrap; gap: 36px 0; }
+  .stats__item { flex: 0 0 50%; }
+  .stats__num { font-size: 32px; }
+  .stats__label { font-size: 15px; }
+
+  /* --- 6. WHY US — фото 150px --- */
+  .why-us { padding: 48px 0 0; }
+
+  .why-us__inner {
+    flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
+    gap: 28px;
+  }
+
+  .why-us__img-col { order: 2; width: 100%; max-width: 100%; flex-shrink: 1; }
+
+  .why-us__text-col { order: 1; width: 100%; padding: 0 20px; }
+  .why-us__text { font-size: 16px; width: 100%; }
+
+  .why-us__img {
+    width: 300px;
+    height: 150px;
+    border-radius: 0 75px 75px 0;
+  }
+
+  /* --- 7. TOURS --- */
+  .tours { padding-top: 64px; }
+  .tours__head { padding: 40px 20px 20px; }
+  .tours__title { font-size: 28px; }
+  .tours__subtitle { font-size: 15px; }
+
+  .tours__signup { margin-top: 20px; margin-bottom: 12px; }
+
+  .tour-card { width: 260px; height: 420px; }
+
+  .tour-card:active .tour-card__overlay-top { opacity: 0; }
+  .tour-card:active .tour-card__price {
+    background: var(--c-yellow);
+    color: var(--c-dark);
+    box-shadow: 0 0 10px rgba(252, 216, 62, 0.55);
+  }
+
+  /* --- 8, 9. BLOG --- */
+  .blog { padding: 20px 20px 60px; min-height: unset; }
+
+  .blog__head-row { flex-direction: column; align-items: flex-start; gap: 0; }
+  .blog__subtitle { width: 100%; }
+  .blog__more { margin-top: 16px; }
+
+  .blog__socials {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    break-inside: avoid;
+    margin-bottom: 20px;
+  }
+  .blog__socials img {
+    width: 30px;
+    height: 30px;
+    display: block;
+  }
+
+  .blog__grid {
+    display: block;
+    column-count: 2;
+    column-gap: 20px;
+    height: auto;
+  }
+
+  .blog__col { display: contents; }
+
+  .blog__img,
+  .blog__img--tall,
+  .blog__img--short {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: fill;
+    flex: none;
+    break-inside: avoid;
+    margin-bottom: 20px;
+  }
+
+  /* --- QUESTIONS --- */
+  .questions__inner { padding: 60px 20px 40px; gap: 32px; }
+  .faq__question { font-size: 17px; }
+  .faq__answer   { font-size: 15px; }
+  .faq__trigger  { padding: 22px 0; }
+
+  /* --- 10. REVIEWS --- */
+  .reviews { padding: 60px 0 40px; gap: 40px; min-height: unset; }
+  .reviews__head { padding: 0 20px; }
+
+  .reviews__head-row { flex-direction: column; align-items: flex-start; gap: 0; }
+  .reviews__subtitle { font-size: 15px; width: 100%; }
+  .reviews__more { margin-top: 16px; }
+
+  .reviews__dots { margin-bottom: 40px; }
+  .review-card { width: calc(100vw - 80px); height: auto; min-height: 180px; }
+  .review-card__text-wrap { width: auto; height: auto; }
+  .review-card__text { font-size: 15px; }
+
+  /* --- 11. FOOTER --- */
+  .footer { height: auto; }
+
+  .footer__inner {
+    padding: 40px 24px 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 20px 40px;
+    align-items: start;
+    flex-direction: unset;
+    justify-content: unset;
+  }
+
+  .footer__top { display: contents; margin-bottom: 0; }
+
+  .footer__logo { grid-column: 1; grid-row: 1; margin-left: 0; padding-left: 0; margin-bottom: 8px; }
+
+  .footer__nav {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 4px;
+  }
+
+  .footer__nav-list { flex-direction: column; align-items: flex-end; gap: 16px; }
+
+  .footer__divider { display: none; }
+
+  .footer__bottom {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-bottom: 8px;
+  }
+
+  .footer__contacts { flex-direction: column; align-items: flex-start; gap: 14px; margin-bottom: 8px; }
+  .footer__contact-text { font-size: 16px; }
+  .footer__nav-link { font-size: 16px; }
+  .footer__socials { gap: 12px; }
+  .footer__social-link { width: 32px; height: 32px; }
+  .footer__social-link img { width: 32px; height: 32px; }
+}
+
+/* ============================================================
+   iPad mini (768 × 1024) — перезаписи поверх мобильных правил
+   ============================================================ */
+@media (min-width: 600px) and (max-width: 768px) {
+
+  /* Иконка телефона — показать, номер раскрывается влево по тапу */
+  .header__phone {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-left: auto;
+    margin-right: 16px;
+  }
+
+  /* Контент hero ниже */
+  .hero__content { top: 300px; }
+
+  /* Шрифты hero */
+  .hero__subtitle { font-size: 18px; }
+
+  /* О нас — фото */
+  .about__img {
+    width: 600px;
+    height: 300px;
+    border-radius: 150px 0 0 150px;
+  }
+
+  /* Почему мы — фото */
+  .why-us__img {
+    width: 600px;
+    height: 300px;
+    border-radius: 0 150px 150px 0;
+  }
+
+  /* Блог — 2 колонки, как на мобилке */
+  .blog__grid {
+    display: block;
+    column-count: 2;
+    column-gap: 20px;
+    height: auto;
+  }
+  .blog__col { display: contents; }
+  .blog__img,
+  .blog__img--tall,
+  .blog__img--short {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: fill;
+    flex: none;
+    break-inside: avoid;
+    margin-bottom: 20px;
+  }
+  .blog__socials {
+    gap: 60px;
+    margin-top: 50px;
+  }
+  .blog__socials img {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Соц.иконки — горизонтальная строка справа, вровень с кнопкой */
+  .socials {
+    flex-direction: row;
+    align-items: center;
+    top: 50%;
+    left: auto;
+    right: 60px;
+    transform: translateY(-50%);
+    gap: 40px;
+  }
+  .socials__link { width: 40px; height: 40px; }
+  .socials__link img { width: 40px; height: 40px; }
+
+  .socials__line {
+    display: block;
+    transform: rotate(90deg);
+    margin-top: 0;
+    margin-left: 50px;
+    flex-shrink: 0;
+  }
+
+  /* Отзывы — карточки как на десктопе */
+  .review-card { width: 460px; height: 240px; }
+  .review-card__text-wrap { width: auto; height: auto; }
+  .review-card__text { font-size: 18px; }
+
+  /* Футер — как iPad Pro, но gap меньше */
+  .footer { height: auto; min-height: 200px; }
+
+  .footer__inner {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    padding: 32px 24px;
+  }
+
+  .footer__top {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .footer__logo {
+    grid-column: initial;
+    grid-row: initial;
+    margin-left: -4px;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  .footer__nav {
+    grid-column: initial;
+    grid-row: initial;
+    padding-top: 0;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .footer__nav-list {
+    flex-direction: row;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .footer__nav-link { font-size: 16px; }
+
+  .footer__divider { display: block; margin-bottom: 20px; }
+
+  .footer__bottom {
+    grid-column: initial;
+    grid-row: initial;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+    padding-bottom: 0;
+    width: 100%;
+  }
+
+  .footer__contacts {
+    display: contents;
+  }
+
+  .footer__contact-text { font-size: 16px; }
+  .footer__socials { gap: 12px; }
+  .footer__social-link { width: 34px; height: 34px; }
+  .footer__social-link img { width: 34px; height: 34px; }
 }

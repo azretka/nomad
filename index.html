@@ -42,6 +42,11 @@
           <span class="header__phone-number">0509 000 000</span>
         </a>
 
+        <!-- Бургер (мобильная) -->
+        <button class="header__burger" id="burger-btn" aria-label="Открыть меню" aria-expanded="false">
+          <img src="imgs/burger.svg" alt="" aria-hidden="true" />
+        </button>
+
       </div>
     </header>
 
@@ -80,6 +85,18 @@
 
   </section>
   <!-- /HERO -->
+
+  <!-- Мобильное меню (position:fixed — вне hero, чтобы не мешать прозрачности хэдера) -->
+  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true" aria-label="Мобильное меню">
+    <ul class="mobile-nav__list">
+      <li><a class="mobile-nav__link" href="#about">О нас</a></li>
+      <li><a class="mobile-nav__link" href="#tours">Туры</a></li>
+      <li><a class="mobile-nav__link" href="#blog">Блог</a></li>
+      <li><a class="mobile-nav__link" href="#questions">Вопросы</a></li>
+      <li><a class="mobile-nav__link" href="#reviews">Отзывы</a></li>
+      <li><a class="mobile-nav__link" href="#contacts">Контакты</a></li>
+    </ul>
+  </nav>
 
   <!-- ========== ABOUT + STATS + WHY US ========== -->
   <div class="middle-block">
@@ -344,13 +361,18 @@
       </div>
       <!-- Колонка 2 -->
       <div class="blog__col">
-        <img class="blog__img blog__img--short" src="imgs/blog2.jpg" alt="Блог фото 2" />
         <img class="blog__img blog__img--tall" src="imgs/blog5.jpg" alt="Блог фото 5" />
+        <img class="blog__img blog__img--short" src="imgs/blog2.jpg" alt="Блог фото 2" />
       </div>
       <!-- Колонка 3 -->
       <div class="blog__col">
         <img class="blog__img blog__img--tall" src="imgs/blog3.jpg" alt="Блог фото 3" />
         <img class="blog__img blog__img--short" src="imgs/blog6.jpg" alt="Блог фото 6" />
+        <div class="blog__socials">
+          <img src="imgs/instagram.svg" alt="Instagram" />
+          <img src="imgs/telegram.svg" alt="Telegram" />
+          <img src="imgs/youtube.svg" alt="YouTube" />
+        </div>
       </div>
     </div>
 
@@ -533,7 +555,6 @@
             <li><a class="footer__nav-link" href="#blog">Блог</a></li>
             <li><a class="footer__nav-link" href="#questions">Вопросы</a></li>
             <li><a class="footer__nav-link" href="#reviews">Отзывы</a></li>
-            <li><a class="footer__nav-link" href="#contacts">Контакты</a></li>
           </ul>
         </nav>
       </div>

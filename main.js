@@ -1,5 +1,52 @@
 'use strict';
 
+/* === PHONE TOGGLE (touch / iPad) === */
+(function () {
+  const phone = document.querySelector('.header__phone');
+  if (!phone) return;
+
+  phone.addEventListener('touchend', function (e) {
+    e.preventDefault();
+    phone.classList.toggle('header__phone--open');
+  }, { passive: false });
+
+  document.addEventListener('touchend', function (e) {
+    if (!phone.contains(e.target)) {
+      phone.classList.remove('header__phone--open');
+    }
+  }, { passive: true });
+})();
+
+/* === BURGER MENU === */
+(function () {
+  const btn = document.getElementById('burger-btn');
+  const nav = document.getElementById('mobile-nav');
+  if (!btn || !nav) return;
+
+  function close() {
+    nav.classList.remove('mobile-nav--open');
+    btn.classList.remove('header__burger--open');
+    btn.setAttribute('aria-expanded', 'false');
+    nav.setAttribute('aria-hidden', 'true');
+  }
+
+  btn.addEventListener('click', () => {
+    const isOpen = nav.classList.contains('mobile-nav--open');
+    if (isOpen) {
+      close();
+    } else {
+      nav.classList.add('mobile-nav--open');
+      btn.classList.add('header__burger--open');
+      btn.setAttribute('aria-expanded', 'true');
+      nav.setAttribute('aria-hidden', 'false');
+    }
+  });
+
+  nav.querySelectorAll('.mobile-nav__link').forEach(link => {
+    link.addEventListener('click', close);
+  });
+})();
+
 /* === NAV: активная ссылка при клике === */
 document.querySelectorAll('.nav__link').forEach(link => {
   link.addEventListener('click', () => {
